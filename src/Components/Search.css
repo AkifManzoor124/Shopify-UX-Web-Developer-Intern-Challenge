@@ -1,6 +1,8 @@
 .podium {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  padding-top: 20px;
 }
 
 .podium > * {
@@ -30,26 +32,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 15%;
   width: 65%;
 }
 
 .podium-bar-base {
   width: 35%;
-  height: 35px;
+  height: 8%;
 }
 
 .podium-stand {
-  width: 30%;
-  height: 400px;
+  width: 20%;
+  height: 50%;
 }
 
 .podium-base-support {
   width: 35%;
-  height: 35px;
+  height: 8%;
 }
 
 .podium-base {
   width: 50%;
-  height: 50px;
+  height: 10%;
 }

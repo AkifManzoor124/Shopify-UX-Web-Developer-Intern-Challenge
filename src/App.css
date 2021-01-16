@@ -4,21 +4,21 @@
 }
 
 .shoppies-screen {
-  height: 50%;
-  width: calc(100%);
-  border: 20px solid black;
+  min-height: 50vh;
   z-index: -1;
+}
+
+.shoppies-screen-content {
+  border: 25px solid black;
 }
 
 .shoppies-stage {
   display: flex;
   width: 100%;
+  min-height: 50vh;
+  padding-top: 15px;
 }
 
 .shoppies-stage > * {
-  border: 1px solid black;
   width: 50%;
-}
-
-.shoppies-podium {
 }

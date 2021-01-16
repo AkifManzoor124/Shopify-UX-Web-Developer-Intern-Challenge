@@ -60,16 +60,13 @@ function App() {
       <SplashScreen></SplashScreen>
       <div className="shoppies">
         <div className="shoppies-screen">
-          <div></div>
-          <Nominations nominations={nominations} removeNomination={removeNomination}></Nominations>
+          <div className="shoppies-screen-content">
+            <Nominations nominations={nominations} removeNomination={removeNomination}></Nominations>
+          </div>
         </div>
         <div className="shoppies-stage">
-          <div className="shoppies-podium">
-            <Search handleSearchChange={handleSearchChange}></Search>
-          </div>
-          <div className="shoppies-results">
-            <Results searchValue={searchValue} handleNomination={handleNomination} movies={movies} nominations={nominations}></Results>
-          </div>
+          <Search handleSearchChange={handleSearchChange}></Search>
+          <Results searchValue={searchValue} handleNomination={handleNomination} movies={movies} nominations={nominations}></Results>
         </div>
         <SuccessDialog nominations={nominations}></SuccessDialog>
         <ErrorDialog handleClickOpen={showErrorDialog} open={openErrorDialog} handleClose={closeErrorDialog}></ErrorDialog>
