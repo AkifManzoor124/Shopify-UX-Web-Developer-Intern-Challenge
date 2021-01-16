@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Results({ movies, nominations, handleNomination }) {
+function Results({ searchValue, movies, nominations, handleNomination }) {
 
     return (
         <div>
-            <h3>Results for ""</h3>
+            <h3>Results for "{searchValue}"</h3>
             <ul>
                 {movies.map(movie =>
                     <li key={movie.imdbID}>{movie.Title} {movie.Year} { }

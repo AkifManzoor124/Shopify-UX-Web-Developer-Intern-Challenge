@@ -6,18 +6,26 @@ import Nominations from './Components/Nominations'
 import './App.css';
 
 function App() {
+  const [searchValue, setSearchValue] = useState('');
+  console.log("🚀 ~ file: App.js ~ line 10 ~ App ~ searchValue", searchValue)
   const [movies, setMovies] = useState([])
   const [nominations, setNominations] = useState([]);
 
 
   const handleSearchChange = (event) => {
-    const searchValue = event.target.value;
     console.log("🚀 ~ file: App.js ~ line 23 ~ handleSearchChange ~ searchValue", searchValue)
     console.log("🚀 ~ file: App.js ~ line 27 ~ handleSearchChange ~ http://www.omdbapi.com/?apikey=2baadd4c&s=${searchValue}", `http://www.omdbapi.com/?apikey=2baadd4c&s=${searchValue}`)
+    console.log("🚀 ~ file: App.js ~ line 22 ~ handleSearchChange ~ event.target.value", event.target.value)
+    setSearchValue(event.target.value)
+    getSearchResults(event.target.value)
+  }
+
+  const getSearchResults = (value) => {
     axios
-      .get(`http://www.omdbapi.com/?apikey=2baadd4c&s='${searchValue}'`)
+      .get(`http://www.omdbapi.com/?apikey=2baadd4c&s='${value}'`)
       .then(response => {
-        (response.data["Response"] != "False") ? setMovies(response.data["Search"]) : setMovies([])
+        { console.log("🚀 ~ file: App.js ~ line 30 ~ getSearchResults ~ response", response) }
+        (response.data["Response"] !== "False") ? setMovies(response.data["Search"]) : setMovies(movies)
       })
   }
 
@@ -39,7 +47,7 @@ function App() {
         <Search handleSearchChange={handleSearchChange}></Search>
       </div>
       <div className="shoppies-nomination">
-        <Results handleNomination={handleNomination} movies={movies} nominations={nominations}></Results>
+        <div className="results"><Results searchValue={searchValue} handleNomination={handleNomination} movies={movies} nominations={nominations}></Results></div>
         <Nominations nominations={nominations} removeNomination={removeNomination}></Nominations>
       </div>
     </div >
