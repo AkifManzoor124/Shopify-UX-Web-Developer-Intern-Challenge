@@ -3,11 +3,17 @@ import "./Search.css"
 
 function Search({ handleSearchChange }) {
     return (
-        <div>
-            <form className="search-form">
-                <label>Movie Title:</label>
-                <input type="text" onChange={handleSearchChange} />
-            </form>
+        <div className="podium">
+            <div className='podium-bar'>
+                <form className="search-form">
+                    <label>Movie Title: </label>
+                    <input type="text" onChange={handleSearchChange} />
+                </form>
+            </div>
+            <div className="podium-bar-base"></div>
+            <div className="podium-stand"></div>
+            <div className="podium-base-support"></div>
+            <div className="podium-base"></div>
         </div>
     )
 }

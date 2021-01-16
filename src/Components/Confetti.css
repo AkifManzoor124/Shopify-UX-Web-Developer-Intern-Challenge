@@ -1,15 +1,10 @@
-html {
-  background-color: #492684;
-  overflow: hidden;
-}
-
-.party-popper {
+.party-popper-left {
   position: absolute;
   top: 50%;
   left: 20%;
 }
 
-.party-popper-end {
+.party-popper-right {
   position: absolute;
   top: 50%;
   left: 80%;

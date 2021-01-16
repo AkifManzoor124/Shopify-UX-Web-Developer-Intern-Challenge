@@ -1,4 +1,55 @@
-.search-form{
-    display: flex;
-    flex-direction: column;
+.podium {
+  display: flex;
+  flex-direction: column;
+}
+
+.podium > * {
+  background-color: #e1cc14;
+  margin: 0 auto;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.search-form > label {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.search-form > input {
+  border: 1px solid black;
+  width: 90%;
+  height: 50px;
+  font-size: 200%;
+}
+
+.podium-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 65%;
+}
+
+.podium-bar-base {
+  width: 35%;
+  height: 50px;
+}
+
+.podium-stand {
+  width: 30%;
+  height: 400px;
+}
+
+.podium-base-support {
+  width: 35%;
+  height: 35px;
+}
+
+.podium-base {
+  width: 50%;
+  height: 50px;
 }

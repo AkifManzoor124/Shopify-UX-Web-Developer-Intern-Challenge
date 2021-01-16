@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './SplashScreen.css'
 
 function SplashScreen() {
-    const [splash, setSplash] = useState(true);
+    const [splash, setSplash] = useState(false);
 
     useEffect(() => setTimeout(() => setSplash(false), 1250), [])
 

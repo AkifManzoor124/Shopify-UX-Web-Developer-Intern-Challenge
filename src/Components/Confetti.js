@@ -100,16 +100,16 @@ export default function Confetti({ open }) {
 
     useEffect(() => {
         console.log("🚀 ~ file: Confetti.js ~ line 110 ~ useEffect ~ open", open)
-        if (open) { partyPopper('.party-popper'); partyPopper('.party-popper-end') }
+        if (open) { partyPopper('.party-popper-left'); partyPopper('.party-popper-right') }
     }, [open])
 
     return (
         <div>
-            <div className="party-popper">
+            <div className="party-popper-left">
                 <div className="party-popper__emoji"></div>
             </div>
-            <div className="party-popper-end">
-                <div clasName="party-popper__emoji"></div>
+            <div className="party-popper-right">
+                <div className="party-popper__emoji"></div>
             </div>
         </div>
     )

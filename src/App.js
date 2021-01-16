@@ -56,18 +56,24 @@ function App() {
   }
 
   return (
-    <div className="container">
+    <div>
       <SplashScreen></SplashScreen>
-      <h2>The Shoppies</h2>
-      <div className="shoppies-search">
-        <Search handleSearchChange={handleSearchChange}></Search>
+      <div className="shoppies">
+        <div className="shoppies-screen">
+          <div></div>
+          <Nominations nominations={nominations} removeNomination={removeNomination}></Nominations>
+        </div>
+        <div className="shoppies-stage">
+          <div className="shoppies-podium">
+            <Search handleSearchChange={handleSearchChange}></Search>
+          </div>
+          <div className="shoppies-results">
+            <Results searchValue={searchValue} handleNomination={handleNomination} movies={movies} nominations={nominations}></Results>
+          </div>
+        </div>
+        <SuccessDialog nominations={nominations}></SuccessDialog>
+        <ErrorDialog handleClickOpen={showErrorDialog} open={openErrorDialog} handleClose={closeErrorDialog}></ErrorDialog>
       </div>
-      <div className="shoppies-nomination">
-        <div className="results"><Results searchValue={searchValue} handleNomination={handleNomination} movies={movies} nominations={nominations}></Results></div>
-        <Nominations nominations={nominations} removeNomination={removeNomination}></Nominations>
-      </div>
-      <SuccessDialog nominations={nominations}></SuccessDialog>
-      <ErrorDialog handleClickOpen={showErrorDialog} open={openErrorDialog} handleClose={closeErrorDialog}></ErrorDialog>
     </div>
   );
 }
