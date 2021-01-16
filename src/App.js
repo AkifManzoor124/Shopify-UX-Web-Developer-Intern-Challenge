@@ -1,23 +1,46 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import Search from './Components/Search'
+import Results from './Components/Results'
+import Nominations from './Components/Nominations'
 import './App.css';
 
 function App() {
+  const [movies, setMovies] = useState([])
+  const [nominations, setNominations] = useState([]);
+
+
+  const handleSearchChange = (event) => {
+
+    const searchValue = event.target.value;
+    console.log("🚀 ~ file: App.js ~ line 23 ~ handleSearchChange ~ searchValue", searchValue)
+    console.log("🚀 ~ file: App.js ~ line 27 ~ handleSearchChange ~ http://www.omdbapi.com/?apikey=2baadd4c&s=${searchValue}", `http://www.omdbapi.com/?apikey=2baadd4c&s=${searchValue}`)
+    axios
+      .get(`http://www.omdbapi.com/?apikey=2baadd4c&s='${searchValue}'`)
+      .then(response => {
+        (response.data["Response"] != "False") ? setMovies(response.data["Search"]) : setMovies([])
+      })
+  }
+
+  const handleNomination = (nomination) => {
+    setNominations([...nominations, nomination])
+  }
+
+  const removeNomination = (nomination) => {
+    const updatedNominations = nominations.filter(remove => { return nomination.title !== remove.title })
+    setNominations(updatedNominations)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h2>The Shoppies</h2>
+      <div className="shoppies-search">
+        <Search handleSearchChange={handleSearchChange}></Search>
+      </div>
+      <div className="shoppies-nomination">
+        <Results movies={movies} handleNomination={handleNomination}></Results>
+        <Nominations nominations={nominations} removeNomination={removeNomination}></Nominations>
+      </div>
     </div>
   );
 }
