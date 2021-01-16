@@ -4,7 +4,7 @@ import './SplashScreen.css'
 function SplashScreen() {
     const [splash, setSplash] = useState(true);
 
-    useEffect(() => setTimeout(() => setSplash(false), 1500), [])
+    useEffect(() => setTimeout(() => setSplash(false), 1250), [])
 
     return (
         <div className={`splash-screen ${splash ? 'splash' : 'hidden'}`}>

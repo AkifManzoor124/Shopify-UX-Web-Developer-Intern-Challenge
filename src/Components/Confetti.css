@@ -1,0 +1,16 @@
+html {
+  background-color: #492684;
+  overflow: hidden;
+}
+
+.party-popper {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+}
+
+.party-popper-end {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+}
