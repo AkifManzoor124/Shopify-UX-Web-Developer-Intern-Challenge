@@ -70,6 +70,9 @@ function partyPopper(selector) {
         ...burst,
         children: {
             ...torsade
+        },
+        onComplete: function () {
+            this.el.parentNode.removeChild(this.el);
         }
     }
 
@@ -77,6 +80,9 @@ function partyPopper(selector) {
         ...burst,
         children: {
             ...flake,
+        },
+        onComplete: function () {
+            this.el.parentNode.removeChild(this.el);
         }
     }
 
@@ -84,6 +90,9 @@ function partyPopper(selector) {
         ...burst,
         children: {
             ...bent,
+        },
+        onComplete: function () {
+            this.el.parentNode.removeChild(this.el);
         }
     }
     console.log("🚀 ~ file: Confetti.js ~ line 1 ~ partyPopper ~ torsadeBurstObj", torsadeBurstObj)

@@ -3,11 +3,6 @@
   flex-direction: column;
 }
 
-.shoppies-screen {
-  min-height: 50vh;
-  z-index: -1;
-}
-
 .shoppies-screen-content {
   border: 25px solid black;
 }
@@ -15,10 +10,10 @@
 .shoppies-stage {
   display: flex;
   width: 100%;
-  min-height: 50vh;
-  padding-top: 15px;
+  height: 44vh;
 }
 
 .shoppies-stage > * {
   width: 50%;
+  outline: 1px solid black;
 }
