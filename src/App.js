@@ -11,9 +11,6 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   const [movies, setMovies] = useState([])
   const [nominations, setNominations] = useState([]);
-  const [splash, setSplash] = useState(true);
-
-  useEffect(() => setTimeout(() => setSplash(false), 1500), [])
 
   const handleSearchChange = (event) => {
     console.log("🚀 ~ file: App.js ~ line 23 ~ handleSearchChange ~ searchValue", searchValue)
@@ -55,7 +52,7 @@ function App() {
         <Nominations nominations={nominations} removeNomination={removeNomination}></Nominations>
       </div>
       <Popup nominations={nominations}></Popup>
-    </div >
+    </div>
   );
 }
 
