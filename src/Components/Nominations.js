@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '@material-ui/core/Button';
 
 function Nominations({ nominations, removeNomination }) {
     return (
@@ -6,7 +7,7 @@ function Nominations({ nominations, removeNomination }) {
             <ul>
                 {nominations.map(nomination =>
                     <li key={nomination.imdbID}>{nomination.Title} {nomination.date}
-                        <button onClick={() => removeNomination(nomination)} >Remove</button>
+                        <Button variant="contained" onClick={() => removeNomination(nomination)} >Remove</Button>
                     </li>)}
             </ul>
         </div>
