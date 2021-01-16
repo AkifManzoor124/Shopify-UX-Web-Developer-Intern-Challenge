@@ -11,7 +11,6 @@ function App() {
 
 
   const handleSearchChange = (event) => {
-
     const searchValue = event.target.value;
     console.log("🚀 ~ file: App.js ~ line 23 ~ handleSearchChange ~ searchValue", searchValue)
     console.log("🚀 ~ file: App.js ~ line 27 ~ handleSearchChange ~ http://www.omdbapi.com/?apikey=2baadd4c&s=${searchValue}", `http://www.omdbapi.com/?apikey=2baadd4c&s=${searchValue}`)
@@ -27,7 +26,9 @@ function App() {
   }
 
   const removeNomination = (nomination) => {
-    const updatedNominations = nominations.filter(remove => { return nomination.title !== remove.title })
+    console.log("🚀 ~ file: App.js ~ line 29 ~ removeNomination ~ nomination", nomination)
+    const updatedNominations = nominations.filter(remove => nomination.Title !== remove.Title)
+    console.log("🚀 ~ file: App.js ~ line 30 ~ removeNomination ~ updatedNominations", updatedNominations)
     setNominations(updatedNominations)
   }
 
@@ -38,10 +39,10 @@ function App() {
         <Search handleSearchChange={handleSearchChange}></Search>
       </div>
       <div className="shoppies-nomination">
-        <Results movies={movies} handleNomination={handleNomination}></Results>
+        <Results handleNomination={handleNomination} movies={movies} nominations={nominations}></Results>
         <Nominations nominations={nominations} removeNomination={removeNomination}></Nominations>
       </div>
-    </div>
+    </div >
   );
 }
 
