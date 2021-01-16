@@ -4,13 +4,12 @@ import Search from './Components/Search'
 import Results from './Components/Results'
 import Nominations from './Components/Nominations'
 import './App.css';
+import Popup from './Components/Popup'
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
-  console.log("🚀 ~ file: App.js ~ line 10 ~ App ~ searchValue", searchValue)
   const [movies, setMovies] = useState([])
   const [nominations, setNominations] = useState([]);
-
 
   const handleSearchChange = (event) => {
     console.log("🚀 ~ file: App.js ~ line 23 ~ handleSearchChange ~ searchValue", searchValue)
@@ -50,7 +49,8 @@ function App() {
         <div className="results"><Results searchValue={searchValue} handleNomination={handleNomination} movies={movies} nominations={nominations}></Results></div>
         <Nominations nominations={nominations} removeNomination={removeNomination}></Nominations>
       </div>
-    </div >
+      <Popup nominations={nominations}></Popup>
+    </div>
   );
 }
 
