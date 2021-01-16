@@ -3,13 +3,17 @@ import axios from 'axios'
 import Search from './Components/Search'
 import Results from './Components/Results'
 import Nominations from './Components/Nominations'
-import './App.css';
 import Popup from './Components/Popup'
+import SplashScreen from './Components/SplashScreen'
+import './App.css';
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
   const [movies, setMovies] = useState([])
   const [nominations, setNominations] = useState([]);
+  const [splash, setSplash] = useState(true);
+
+  useEffect(() => setTimeout(() => setSplash(false), 1500), [])
 
   const handleSearchChange = (event) => {
     console.log("🚀 ~ file: App.js ~ line 23 ~ handleSearchChange ~ searchValue", searchValue)
@@ -41,6 +45,7 @@ function App() {
 
   return (
     <div className="container">
+      <SplashScreen></SplashScreen>
       <h2>The Shoppies</h2>
       <div className="shoppies-search">
         <Search handleSearchChange={handleSearchChange}></Search>
@@ -50,7 +55,7 @@ function App() {
         <Nominations nominations={nominations} removeNomination={removeNomination}></Nominations>
       </div>
       <Popup nominations={nominations}></Popup>
-    </div>
+    </div >
   );
 }
 
