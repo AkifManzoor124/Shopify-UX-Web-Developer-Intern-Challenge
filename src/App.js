@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import Search from './Components/Search'
 import Results from './Components/Results'
 import Nominations from './Components/Nominations'
-import Popup from './Components/Popup'
+import SuccessDialog from './Components/SuccessDialog'
+import ErrorDialog from './Components/ErrorDialog'
 import SplashScreen from './Components/SplashScreen'
 import './App.css';
 
@@ -11,6 +12,16 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   const [movies, setMovies] = useState([])
   const [nominations, setNominations] = useState([]);
+
+  const [openErrorDialog, setOpenErrorDialog] = React.useState(false);
+
+  const showErrorDialog = () => {
+    setOpenErrorDialog(true);
+  };
+
+  const closeErrorDialog = () => {
+    setOpenErrorDialog(false)
+  }
 
   const handleSearchChange = (event) => {
     console.log("🚀 ~ file: App.js ~ line 23 ~ handleSearchChange ~ searchValue", searchValue)
@@ -30,7 +41,11 @@ function App() {
   }
 
   const handleNomination = (nomination) => {
-    setNominations([...nominations, nomination])
+    if (nominations.length < 5) {
+      setNominations([...nominations, nomination])
+    } else {
+      showErrorDialog()
+    }
   }
 
   const removeNomination = (nomination) => {
@@ -51,7 +66,8 @@ function App() {
         <div className="results"><Results searchValue={searchValue} handleNomination={handleNomination} movies={movies} nominations={nominations}></Results></div>
         <Nominations nominations={nominations} removeNomination={removeNomination}></Nominations>
       </div>
-      <Popup nominations={nominations}></Popup>
+      <SuccessDialog nominations={nominations}></SuccessDialog>
+      <ErrorDialog handleClickOpen={showErrorDialog} open={openErrorDialog} handleClose={closeErrorDialog}></ErrorDialog>
     </div>
   );
 }
