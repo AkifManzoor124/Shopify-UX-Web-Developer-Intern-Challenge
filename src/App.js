@@ -33,7 +33,7 @@ function App() {
 
   const getSearchResults = (value) => {
     axios
-      .get(`http://www.omdbapi.com/?apikey=2baadd4c&s='${value}'`)
+      .get(`https://www.omdbapi.com/?apikey=2baadd4c&s='${value}'`)
       .then(response => {
         { console.log("🚀 ~ file: App.js ~ line 30 ~ getSearchResults ~ response", response) }
         (response.data["Response"] !== "False") ? setMovies(response.data["Search"]) : setMovies(movies)
