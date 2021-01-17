@@ -6,15 +6,17 @@ function Results({ searchValue, movies, nominations, handleNomination }) {
 
     return (
         <div className="results">
-            <h3>Results for "{searchValue}"</h3>
             <ul>
                 {movies.map(movie =>
-                    <div className="result-data">
-                        <li key={movie.imdbID}>- {movie.Title} {movie.Year}
-                            <span>&nbsp;&nbsp;</span>
+                    <li key={movie.imdbID}>
+                        <div className="poster">
+                            <img src={movie.Poster}></img>
+                        </div>
+                        <div className="movie-content">
+                            <p>{movie.Title} {movie.Year}</p>
                             <Button disableElevation variant="contained" disabled={nominations.includes(movie)} onClick={() => handleNomination(movie)}>Nominate</Button>
-                        </li>
-                    </div>
+                        </div>
+                    </li>
                 )
                 }
             </ul>

@@ -50,7 +50,7 @@ function App() {
 
   const removeNomination = (nomination) => {
     console.log("🚀 ~ file: App.js ~ line 29 ~ removeNomination ~ nomination", nomination)
-    const updatedNominations = nominations.filter(remove => nomination.Title !== remove.Title)
+    const updatedNominations = nominations.filter(remove => nomination.imdbID !== remove.imdbID)
     console.log("🚀 ~ file: App.js ~ line 30 ~ removeNomination ~ updatedNominations", updatedNominations)
     setNominations(updatedNominations)
   }

@@ -12,8 +12,3 @@
   width: 100%;
   height: 44vh;
 }
-
-.shoppies-stage > * {
-  width: 50%;
-  outline: 1px solid black;
-}
