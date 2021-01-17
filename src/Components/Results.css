@@ -4,7 +4,7 @@
 
 .results > * {
   padding-left: 5vh;
-  font-size: 3vh;
+  font-size: 2vh;
 }
 
 .results > Button {
@@ -21,8 +21,8 @@ li {
 }
 
 .MuiButton-root {
-  padding: 1vw 1.5vw !important;
-  font-size: 1.2vw !important;
-  border-radius: 1vw !important;
+  padding: 0.6vw 0.8vw !important;
+  font-size: 0.6vw !important;
+  border-radius: 0.6vw !important;
   min-width: 1vw;
 }
