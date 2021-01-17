@@ -18,6 +18,7 @@
 .search-form > label {
   font-size: 1vw;
   font-weight: bold;
+  width: 20%;
 }
 
 .search-form > input {
@@ -32,7 +33,7 @@
   justify-content: center;
   align-items: center;
   height: 15%;
-  width: 65%;
+  width: 80%;
 }
 
 .podium-bar-base {
