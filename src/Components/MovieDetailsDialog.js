@@ -6,14 +6,13 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import './MovieDetailsDialog.css'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-function AlertDialogSlide({ open, handleClickOpen, handleClose }) {
-
-
+function MovieDetailsDialog({ open, movie, handleClose }) {
     return (
         <div>
             <Dialog
@@ -24,10 +23,16 @@ function AlertDialogSlide({ open, handleClickOpen, handleClose }) {
                 aria-labelledby="alert-dialog-slide-title"
                 aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle id="alert-dialog-slide-title">{"Easy There Partner!"}</DialogTitle>
+                <DialogTitle id="alert-dialog-slide-title">{movie.Title}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        It looks like you've already nominated 5 movies.
+                        <div className="modal-movie-details">
+                            <img src={movie.Poster} alt="Movie Poster"></img>
+                            <p>Movie Title: {movie.Title}</p>
+                            <p>Type: {movie.Type}</p>
+                            <p>Date Released: {movie.Year}</p>
+                            <p>imbdID: {movie.imdbID}</p>
+                        </div>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
@@ -40,4 +45,4 @@ function AlertDialogSlide({ open, handleClickOpen, handleClose }) {
     );
 }
 
-export default AlertDialogSlide
+export default MovieDetailsDialog

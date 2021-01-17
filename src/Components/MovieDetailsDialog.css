@@ -1,0 +1,10 @@
+.modal-movie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-movie-details > p:first-of-type {
+  padding-top: 1vw;
+}

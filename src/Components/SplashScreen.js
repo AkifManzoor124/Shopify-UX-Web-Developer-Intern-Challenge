@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './SplashScreen.css'
 
 function SplashScreen() {
-    const [splash, setSplash] = useState(true);
+    const [splash, setSplash] = React.useState(true);
 
-    useEffect(() => setTimeout(() => setSplash(false), 1250), [])
+    React.useEffect(() => setTimeout(() => setSplash(false), 1250), [])
 
     return (
         <div className={`splash-screen ${splash ? 'splash' : 'hidden'}`}>

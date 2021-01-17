@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Button from '@material-ui/core/Button';
 import './Nominations.css'
 
 function Nominations({ nominations, removeNomination }) {
-    const [banner, setBanner] = useState(true);
+    const [banner, setBanner] = React.useState(true);
 
-    useEffect(() => {
+    React.useEffect(() => {
         (nominations.length >= 1) ? setBanner(false) : setBanner(true);
     }, [nominations.length])
 

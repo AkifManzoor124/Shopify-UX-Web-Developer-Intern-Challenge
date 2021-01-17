@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import mojs from '@mojs/core'
 import './Confetti.css'
 
@@ -107,7 +107,7 @@ function partyPopper(selector) {
 
 export default function Confetti({ open }) {
 
-    useEffect(() => {
+    React.useEffect(() => {
         console.log("🚀 ~ file: Confetti.js ~ line 110 ~ useEffect ~ open", open)
         if (open) { partyPopper('.party-popper-left'); partyPopper('.party-popper-right') }
     }, [open])

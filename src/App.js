@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import axios from 'axios'
 import Search from './Components/Search'
 import Results from './Components/Results'
@@ -6,14 +6,17 @@ import Nominations from './Components/Nominations'
 import SuccessDialog from './Components/SuccessDialog'
 import ErrorDialog from './Components/ErrorDialog'
 import SplashScreen from './Components/SplashScreen'
+import MovieDetailsDialog from './Components/MovieDetailsDialog'
 import './App.css';
 
 function App() {
-  const [searchValue, setSearchValue] = useState('');
-  const [movies, setMovies] = useState([])
-  const [nominations, setNominations] = useState([]);
+  const [searchValue, setSearchValue] = React.useState('');
+  const [movies, setMovies] = React.useState([])
+  const [nominations, setNominations] = React.useState([]);
 
   const [openErrorDialog, setOpenErrorDialog] = React.useState(false);
+  const [openMovieDetailsDialog, setOpenMovieDetailsDialog] = React.useState(false);
+  const [movieToShow, setMovieToShow] = React.useState(false);
 
   const showErrorDialog = () => {
     setOpenErrorDialog(true);
@@ -22,6 +25,15 @@ function App() {
   const closeErrorDialog = () => {
     setOpenErrorDialog(false)
   }
+
+  const showMovieDetailsDialog = (movie) => {
+    setMovieToShow(movie)
+    setOpenMovieDetailsDialog(true);
+  };
+
+  const closeMovieDetailsDialog = () => {
+    setOpenMovieDetailsDialog(false);
+  };
 
   const handleSearchChange = (event) => {
     console.log("🚀 ~ file: App.js ~ line 23 ~ handleSearchChange ~ searchValue", searchValue)
@@ -66,10 +78,11 @@ function App() {
         </div>
         <div className="shoppies-stage">
           <Search handleSearchChange={handleSearchChange}></Search>
-          <Results searchValue={searchValue} handleNomination={handleNomination} movies={movies} nominations={nominations}></Results>
+          <Results showMovieDetailsDialog={showMovieDetailsDialog} searchValue={searchValue} handleNomination={handleNomination} movies={movies} nominations={nominations}></Results>
         </div>
         <SuccessDialog nominations={nominations}></SuccessDialog>
         <ErrorDialog handleClickOpen={showErrorDialog} open={openErrorDialog} handleClose={closeErrorDialog}></ErrorDialog>
+        <MovieDetailsDialog open={openMovieDetailsDialog} movie={movieToShow} handleClose={closeMovieDetailsDialog}></MovieDetailsDialog>
       </div>
     </div>
   );
