@@ -21,7 +21,11 @@
 .splash-screen.hidden {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
+  height: 55%;
+  transform: translate(25px, 0);
+  overflow-y: hidden;
+  transition: height 0.4s linear, transform 0.4s linear, visibility 0s 2s,
+    opacity 2s linear;
 }
 
 .shoppies_text {
@@ -30,7 +34,4 @@
 }
 
 .shoppies_logo {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: 50px;
 }
