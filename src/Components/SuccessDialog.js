@@ -51,6 +51,7 @@ export default function AlertDialogSlide({ nominations }) {
                     </Button>
                 </DialogActions>
             </Dialog>
+
             <Confetti open={open}></Confetti>
         </div>
     );

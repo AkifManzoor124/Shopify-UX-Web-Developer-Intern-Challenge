@@ -1,7 +1,28 @@
+.results {
+  overflow: auto;
+}
+
 .results > * {
-  padding-left: 35px;
+  padding-left: 5vh;
+  font-size: 3vh;
+}
+
+.results > Button {
+  font-size: 3vh;
 }
 
 li {
-  margin-bottom: 5px;
+  margin-bottom: 0.7vw;
+}
+
+.result-data > * {
+  display: flex;
+  align-items: center;
+}
+
+.MuiButton-root {
+  padding: 1vw 1.5vw !important;
+  font-size: 1.2vw !important;
+  border-radius: 1vw !important;
+  min-width: 1vw;
 }

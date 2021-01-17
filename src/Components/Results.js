@@ -9,10 +9,14 @@ function Results({ searchValue, movies, nominations, handleNomination }) {
             <h3>Results for "{searchValue}"</h3>
             <ul>
                 {movies.map(movie =>
-                    <li key={movie.imdbID}>{movie.Title} {movie.Year} { }
-                        <Button variant="contained" disabled={nominations.includes(movie)} onClick={() => handleNomination(movie)}>Nominate</Button>
-                        {console.log("🚀 ~ file: App.js ~ line 47 ~ App ~ !nominations.includes(movie)", !nominations.includes(movie))}
-                    </li>)}
+                    <div className="result-data">
+                        <li key={movie.imdbID}>- {movie.Title} {movie.Year}
+                            <span>&nbsp;&nbsp;</span>
+                            <Button disableElevation variant="contained" disabled={nominations.includes(movie)} onClick={() => handleNomination(movie)}>Nominate</Button>
+                        </li>
+                    </div>
+                )
+                }
             </ul>
         </div>
     )

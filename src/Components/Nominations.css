@@ -41,5 +41,9 @@
   align-items: center;
   justify-content: center;
   width: 20%;
-  padding: 20px;
+  padding: 1vw;
+}
+
+.panel > img {
+  width: 12vw;
 }

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding-top: 20px;
+  padding-top: 2vh;
 }
 
 .podium > * {
@@ -17,15 +17,15 @@
 }
 
 .search-form > label {
-  font-size: 15px;
+  font-size: 1vw;
   font-weight: bold;
 }
 
 .search-form > input {
-  border: 1px solid black;
+  outline: 0.1vw solid black;
   width: 90%;
-  height: 50px;
-  font-size: 200%;
+  height: 2vw;
+  font-size: 2vw;
 }
 
 .podium-bar {
@@ -42,8 +42,8 @@
 }
 
 .podium-stand {
-  width: 18%;
-  height: 50%;
+  width: 13%;
+  height: 55%;
 }
 
 .podium-base-support {

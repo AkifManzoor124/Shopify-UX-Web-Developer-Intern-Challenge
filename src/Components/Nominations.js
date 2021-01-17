@@ -6,7 +6,7 @@ function Nominations({ nominations, removeNomination }) {
     const [banner, setBanner] = useState(true);
 
     useEffect(() => {
-        if (nominations.length >= 1) setBanner(false);
+        (nominations.length >= 1) ? setBanner(false) : setBanner(true);
     }, [nominations.length])
 
     return (

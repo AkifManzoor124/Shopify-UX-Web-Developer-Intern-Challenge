@@ -29,9 +29,10 @@
 }
 
 .shoppies_text {
-  font-size: 135px;
+  font-size: 6vw;
   color: #efc000;
 }
 
 .shoppies_logo {
+  height: 50vh;
 }
